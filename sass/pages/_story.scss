@@ -1,0 +1,36 @@
+@use "../abstracts/mixins";
+
+// story-page
+.story-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  // story-page__header
+  &__header {
+    flex-shrink: 0;
+  }
+
+  // story-page__main
+  &__main {
+    flex-grow: 1;
+    padding: 1rem;
+
+    // tablet
+    @include mixins.tablet {
+      padding: 1rem 1.5rem;
+    }
+
+    // xlarge-tablet
+    @include mixins.xlarge-tablet {
+      padding: 1rem 2rem;
+      width: 70%;
+    }
+  }
+
+  // story-page__footer
+  &__footer {
+    flex-shrink: 0;
+    margin-top: auto;
+  }
+}

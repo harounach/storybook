@@ -1,0 +1,21 @@
+// colors
+$primary-color: #457b9d;
+$on-primary-color: #ffffff;
+$secondary-color: #ef476f;
+$on-secondary-color: #ffffff;
+$surface-color: #fdfdfd;
+$on-surface-color: #000000;
+$background-color: #f1faee;
+$on-background-color: #000000;
+$error-color: #e63946;
+$on-error-color: #ffffff;
+
+// breakpoints
+$breakpoints: (
+  tablet: 600px,
+  large-tablet: 720px,
+  xlarge-tablet: 840px,
+  small-desktop: 960px,
+  desktop: 1024px,
+  large-desktop: 1280px,
+);

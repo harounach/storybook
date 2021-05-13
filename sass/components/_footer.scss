@@ -1,0 +1,15 @@
+@use "../abstracts/variables" as vars;
+
+// footer
+.footer {
+  width: 100%;
+  height: 4.5rem;
+  background-color: vars.$primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // footer__copyright
+  &__copyright {
+    color: vars.$on-primary-color;
+  }
+}

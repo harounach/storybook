@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as vars;
+@use "./typography" as type;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: type.$base-font;
+  font-size: type.$base-font-size;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: type.$body-font-size;
+  background-color: vars.$background-color;
+}

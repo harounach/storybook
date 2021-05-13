@@ -1,0 +1,65 @@
+@use "../abstracts/variables" as vars;
+@use "../base/typography" as type;
+@use "../abstracts/mixins";
+
+// form
+.form {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: vars.$surface-color;
+  padding: 1rem;
+  @include mixins.surface-shadow;
+  // form__section
+  &__section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // form__label
+  &__label {
+    color: type.$text-medium-color;
+  }
+
+  // form__input-control
+  &__input-control {
+    width: 100%;
+    height: 3rem;
+    border: 3px solid vars.$primary-color;
+    border-radius: 0.25rem;
+    padding-left: 0.5rem;
+    margin: 0.5rem 0 0;
+  }
+
+  // form__area
+  &__area {
+    width: 100%;
+    min-height: 7rem;
+    border: 3px solid vars.$primary-color;
+    border-radius: 0.25rem;
+    padding-left: 0.5rem;
+    margin: 0.5rem 0 0;
+  }
+
+  // form__error-message
+  &__error-message {
+    color: vars.$error-color;
+    margin: 0.5rem 0 1rem;
+  }
+
+  // form__radio-section
+  &__radio-section {
+    width: 4.5rem;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // form__radio
+  &__radio {
+  }
+}
