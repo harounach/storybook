@@ -3,7 +3,7 @@
  * @route GET /
  */
 exports.index = function (req, res) {
-  res.render("home", { layout: "home" });
+  res.render("home", { layout: "home", page: "home-page", title: "Home" });
 };
 
 /**
@@ -11,5 +11,9 @@ exports.index = function (req, res) {
  * @route GET /dashboard
  */
 exports.dashboard = function (req, res) {
-  res.render("dashboard");
+  res.render("dashboard", {
+    layout: "main",
+    page: "dashboard-page",
+    title: "Dashboard",
+  });
 };

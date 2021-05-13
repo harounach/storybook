@@ -3,7 +3,11 @@
  * @route GET /stories
  */
 exports.stories = function (req, res) {
-  res.render("stories");
+  res.render("stories", {
+    layout: "main",
+    page: "public-page",
+    title: "All stories",
+  });
 };
 
 /**
@@ -11,7 +15,11 @@ exports.stories = function (req, res) {
  * @route GET /stories/:id/view
  */
 exports.story = function (req, res) {
-  res.render("story");
+  res.render("story", {
+    layout: "main",
+    page: "story-page",
+    title: "Story 1",
+  });
 };
 
 /**
@@ -19,7 +27,11 @@ exports.story = function (req, res) {
  * @route GET /stories/add
  */
 exports.getAddStory = function (req, res) {
-  res.render("add-story");
+  res.render("add-story", {
+    layout: "main",
+    page: "add-story-page",
+    title: "Add story",
+  });
 };
 
 /**
@@ -35,7 +47,11 @@ exports.postAddStory = function (req, res) {
  * @route GET /stories/:id/edit
  */
 exports.getEditStory = function (req, res) {
-  res.render("edit-story");
+  res.render("edit-story", {
+    layout: "main",
+    page: "edit-story-page",
+    title: "Edit story",
+  });
 };
 
 /**

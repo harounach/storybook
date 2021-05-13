@@ -1,1 +1,66 @@
-<h1>Edit story page</h1>
+<header class="edit-story-page__header appbar">
+  <div class="appbar__section">
+    <h1 class="appbar__app-name">Story Book</h1>
+  </div>
+  <div class="appbar__section">
+    <nav class="appbar__nav">
+      <a href="/dashboard" class="appbar__link">Dashboard</a>
+      <a href="/stories" class="appbar__link">Public</a>
+      <a href="/" class="appbar__link appbar__link--right">Logout</a>
+    </nav>
+  </div>
+</header>
+<main class="edit-story-page__main main">
+  <div class="edit-story-page__form-wrapper">
+    <h3 class="title">Edit story</h3>
+    <form method="POST" class="form">
+      <div class="form__section">
+        <label for="title" class="form__label">Title</label>
+        <input
+          name="title"
+          id="title"
+          type="text"
+          class="form__input-control"
+        />
+        <p class="form__error-message"></p>
+      </div>
+      <div class="form__section">
+        <label for="body" class="form__label">Body</label>
+        <textarea name="body" id="body" class="form__area"></textarea>
+        <p class="form__error-message"></p>
+      </div>
+
+      <div class="form__section">
+        <div class="form__radio-section">
+          <label for="public" class="form__label">Public</label>
+          <input
+            type="radio"
+            name="status"
+            value="public"
+            id="public"
+            class="form__radio"
+          />
+        </div>
+
+        <div class="form__radio-section">
+          <label for="private" class="form__label">Private</label>
+          <input
+            type="radio"
+            name="status"
+            value="private"
+            id="private"
+            class="form__radio"
+          />
+        </div>
+      </div>
+      <div class="form__section">
+        <div class="btn-group edit-story-page__btn-group">
+          <button class="btn btn--submit">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+<footer class="edit-story-page__footer footer">
+  <p class="footer__copyright">Copyright Haroun Ach 2021</p>
+</footer>

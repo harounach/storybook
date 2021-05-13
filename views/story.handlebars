@@ -1,1 +1,52 @@
-<h1>Story page</h1>
+<header class="story-page__header appbar">
+  <div class="appbar__section">
+    <h1 class="appbar__app-name">Story Book</h1>
+  </div>
+  <div class="appbar__section">
+    <nav class="appbar__nav">
+      <a href="/dashboard" class="appbar__link">Dashboard</a>
+      <a href="/stories" class="appbar__link">Public</a>
+      <a href="/" class="appbar__link appbar__link--right">Logout</a>
+    </nav>
+  </div>
+</header>
+<main class="story-page__main main">
+  <div class="story">
+    <div class="story__section">
+      <div class="story__avatar-wrapper">
+        <img src="/images/profile.jpg" alt="" class="story__avatar" />
+      </div>
+    </div>
+    <div class="story__section">
+      <h3 class="story__title">Learn to code</h3>
+    </div>
+    <div class="story__section">
+      <p class="story__body">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident,
+        temporibus expedita nostrum, alias minima omnis animi culpa atque fuga
+        id veritatis! Aperiam commodi eaque ipsam nobis ipsa mollitia laboriosam
+        impedit!
+      </p>
+    </div>
+    <div class="story__section">
+      <div class="btn-group btn-group--right">
+        <a
+          href="/stories/1/edit"
+          class="btn btn--40 btn--bg-white btn--right-margin"
+        >
+          <img class="btn__icon" src="/images/edit_black_24dp.svg" alt="" />
+        </a>
+        <a href="#" class="btn btn--40 btn--bg-white">
+          <img class="btn__icon" src="/images/delete_black_24dp.svg" alt="" />
+        </a>
+      </div>
+    </div>
+    <span
+      class="story__status story__status--private"
+      title="Private story"
+    >Private</span>
+  </div>
+</main>
+<footer class="story-page__footer footer">
+  <p class="footer__copyright">Copyright Haroun Ach 2021</p>
+</footer>
