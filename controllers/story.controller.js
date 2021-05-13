@@ -39,7 +39,7 @@ exports.getAddStory = function (req, res) {
  * @route POST /stories/add
  */
 exports.postAddStory = function (req, res) {
-  res.send("Post Add story");
+  res.redirect("/dashboard");
 };
 
 /**
@@ -59,5 +59,5 @@ exports.getEditStory = function (req, res) {
  * @route Post /stories/:id/edit
  */
 exports.postEditStory = function (req, res) {
-  res.send("Post Edit story");
+  res.redirect("/dashboard");
 };
