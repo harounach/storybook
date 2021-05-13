@@ -10,6 +10,12 @@ const storyController = require("../controllers/story.controller");
 router.route("/").get(storyController.stories);
 
 /**
+ * @description Story page route
+ * @route GET /stories/:id/view
+ */
+router.route("/:id/view").get(storyController.story);
+
+/**
  * @description Add story page route
  * @route GET /stories/add
  */
@@ -23,14 +29,14 @@ router.route("/add").post(storyController.postAddStory);
 
 /**
  * @description Edit story page route
- * @route GET /stories/edit
+ * @route GET /stories/:id/edit
  */
-router.route("/edit").get(storyController.getEditStory);
+router.route("/:id/edit").get(storyController.getEditStory);
 
 /**
  * @description Edit story page route
- * @route Post /stories/edit
+ * @route Post /stories/:id/edit
  */
-router.route("/edit").post(storyController.postEditStory);
+router.route("/:id/edit").post(storyController.postEditStory);
 
 module.exports = router;

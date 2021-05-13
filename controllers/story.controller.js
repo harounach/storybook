@@ -3,7 +3,15 @@
  * @route GET /stories
  */
 exports.stories = function (req, res) {
-  res.send("Public stories page");
+  res.render("stories");
+};
+
+/**
+ * @description Story page route
+ * @route GET /stories/:id/view
+ */
+exports.story = function (req, res) {
+  res.render("story");
 };
 
 /**
@@ -11,7 +19,7 @@ exports.stories = function (req, res) {
  * @route GET /stories/add
  */
 exports.getAddStory = function (req, res) {
-  res.send("Add story page");
+  res.render("add-story");
 };
 
 /**
@@ -24,15 +32,15 @@ exports.postAddStory = function (req, res) {
 
 /**
  * @description Edit story page route
- * @route GET /stories/edit
+ * @route GET /stories/:id/edit
  */
 exports.getEditStory = function (req, res) {
-  res.send("Edit story page");
+  res.render("edit-story");
 };
 
 /**
  * @description Edit story page route
- * @route Post /stories/edit
+ * @route Post /stories/:id/edit
  */
 exports.postEditStory = function (req, res) {
   res.send("Post Edit story");
