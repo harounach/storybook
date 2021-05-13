@@ -4,51 +4,33 @@ const router = Router();
 const storyController = require("../controllers/story.controller");
 
 /**
- * @description Home page route
- * @route GET /
- */
-router.route("/").get(storyController.index);
-
-/**
- * @description Dashboard page route
- * @route GET /dashboard
- */
-router.route("/dashboard").get(storyController.dashboard);
-
-/**
  * @description Public stories page route
- * @route GET /public
+ * @route GET /stories
  */
-router.route("/public").get(storyController.public);
+router.route("/").get(storyController.stories);
 
 /**
  * @description Add story page route
- * @route GET /add-story
+ * @route GET /stories/add
  */
-router.route("/add-story").get(storyController.getAddStory);
+router.route("/add").get(storyController.getAddStory);
 
 /**
  * @description Add story page route
- * @route POST /add-story
+ * @route POST /stories/add
  */
-router.route("/add-story").post(storyController.postAddStory);
+router.route("/add").post(storyController.postAddStory);
 
 /**
  * @description Edit story page route
- * @route GET /edit-story
+ * @route GET /stories/edit
  */
-router.route("/edit-story").get(storyController.getEditStory);
+router.route("/edit").get(storyController.getEditStory);
 
 /**
  * @description Edit story page route
- * @route Post /edit-story
+ * @route Post /stories/edit
  */
-router.route("/edit-story").post(storyController.postEditStory);
-
-/**
- * @description Log out route
- * @route Post /logout
- */
-router.route("/logout").post(storyController.logOut);
+router.route("/edit").post(storyController.postEditStory);
 
 module.exports = router;

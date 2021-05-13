@@ -1,30 +1,14 @@
 /**
- * @description Home page route
- * @route GET /
- */
-exports.index = function (req, res) {
-  res.render("home");
-};
-
-/**
- * @description Dashboard page route
- * @route GET /dashboard
- */
-exports.dashboard = function (req, res) {
-  res.send("Dashboard page");
-};
-
-/**
  * @description Public stories page route
- * @route GET /public
+ * @route GET /stories
  */
-exports.public = function (req, res) {
+exports.stories = function (req, res) {
   res.send("Public stories page");
 };
 
 /**
  * @description Add story page route
- * @route GET /add-story
+ * @route GET /stories/add
  */
 exports.getAddStory = function (req, res) {
   res.send("Add story page");
@@ -32,7 +16,7 @@ exports.getAddStory = function (req, res) {
 
 /**
  * @description Add story page route
- * @route POST /add-story
+ * @route POST /stories/add
  */
 exports.postAddStory = function (req, res) {
   res.send("Post Add story");
@@ -40,7 +24,7 @@ exports.postAddStory = function (req, res) {
 
 /**
  * @description Edit story page route
- * @route GET /edit-story
+ * @route GET /stories/edit
  */
 exports.getEditStory = function (req, res) {
   res.send("Edit story page");
@@ -48,12 +32,8 @@ exports.getEditStory = function (req, res) {
 
 /**
  * @description Edit story page route
- * @route Post /edit-story
+ * @route Post /stories/edit
  */
 exports.postEditStory = function (req, res) {
   res.send("Post Edit story");
-};
-
-exports.logOut = function (req, res) {
-  res.send("Log out");
 };
