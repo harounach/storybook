@@ -1,4 +1,7 @@
 const { ensureAuth } = require("../middleware/auth");
+const storyDAO = require("../dao/story.dao");
+const errorHelper = require("../helpers/errorHelper");
+const { body, validationResult } = require("express-validator");
 
 /**
  * @description Public stories page route
@@ -49,9 +52,39 @@ exports.getAddStory = [
  * @description Add story page route
  * @route POST /stories/add
  */
-exports.postAddStory = function (req, res) {
-  res.redirect("/dashboard");
-};
+exports.postAddStory = [
+  body("title", "Title must not be empty").not().isEmpty().escape(),
+  body("body", "Body must not be empty").not().isEmpty().escape(),
+
+  /* return json */
+  async function (req, res) {
+    const errors = validationResult(req);
+    const { title, body, status } = req.body;
+
+    // Data is invalid
+    if (!errors.isEmpty()) {
+      res.render("add-story", {
+        layout: "main",
+        page: "add-story-page",
+        title: "Add story",
+        titleField: title,
+        bodyField: body,
+        titleError: errorHelper.getErrorMessage(errors.array(), "title"),
+        bodyError: errorHelper.getErrorMessage(errors.array(), "body"),
+      });
+    } else {
+      // Data is valid, Create and add story to database
+      try {
+        const storyObj = { title, body, status, user: req.user.id };
+        await storyDAO.addStory(storyObj);
+        res.redirect("/dashboard");
+      } catch (err) {
+        console.error(err);
+        res.redirect("/dashboard");
+      }
+    }
+  },
+];
 
 /**
  * @description Edit story page route

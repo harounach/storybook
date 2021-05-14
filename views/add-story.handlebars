@@ -13,6 +13,7 @@
 <main class="add-story-page__main main">
   <div class="add-story-page__form-wrapper">
     <h3 class="title">Create a story</h3>
+    <div>{{errors}}</div>
     <form method="POST" class="form">
       <div class="form__section">
         <label for="title" class="form__label">Title</label>
@@ -21,13 +22,18 @@
           id="title"
           type="text"
           class="form__input-control"
+          value="{{titleField}}"
         />
-        <p class="form__error-message"></p>
+        <p class="form__error-message"> {{titleError}} </p>
       </div>
       <div class="form__section">
         <label for="body" class="form__label">Body</label>
-        <textarea name="body" id="body" class="form__area"></textarea>
-        <p class="form__error-message"></p>
+        <textarea
+          name="body"
+          id="body"
+          class="form__area"
+        >{{bodyField}}</textarea>
+        <p class="form__error-message"> {{bodyError}} </p>
       </div>
 
       <div class="form__section">
@@ -39,6 +45,7 @@
             value="public"
             id="public"
             class="form__radio"
+            checked
           />
         </div>
 

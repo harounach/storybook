@@ -1,4 +1,6 @@
+const { render } = require("sass");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
+const storyDAO = require("../dao/story.dao");
 
 /**
  * @description Home page route
@@ -17,11 +19,18 @@ exports.index = [
  */
 exports.dashboard = [
   ensureAuth,
-  function (req, res) {
-    res.render("dashboard", {
-      layout: "main",
-      page: "dashboard-page",
-      title: "Dashboard",
-    });
+  async function (req, res) {
+    try {
+      const stories = await storyDAO.getAllStories();
+
+      res.render("dashboard", {
+        layout: "main",
+        page: "dashboard-page",
+        title: "Dashboard",
+        stories: stories,
+      });
+    } catch (err) {
+      console.error(err);
+    }
   },
 ];
