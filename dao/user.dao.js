@@ -10,5 +10,5 @@ exports.getUser = async function (profileId) {
 };
 
 exports.findById = async function (id) {
-  return User.findById(id);
+  return await User.findById(id);
 };

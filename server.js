@@ -4,6 +4,7 @@ const exphbs = require("express-handlebars");
 const favicon = require("serve-favicon");
 const path = require("path");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 const mongoConfig = require("./database/mongoConfig");
 const passportConfig = require("./auth/passportConfig");
@@ -26,6 +27,10 @@ app.use(
     secret: "keyboard cats",
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+      collectionName: "storybook_sessions",
+    }),
   })
 );
 
@@ -44,10 +49,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Set global var
-// app.use(function (req, res, next) {
-//   res.locals.user = req.user || null;
-//   next();
-// });
+app.use(function (req, res, next) {
+  res.locals.user = req.user || null;
+  next();
+});
 
 // Register routes
 app.use("/", indexRoute);
