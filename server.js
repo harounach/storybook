@@ -3,6 +3,8 @@ const exphbs = require("express-handlebars");
 const favicon = require("serve-favicon");
 const path = require("path");
 
+const mongoConfig = require("./database/mongoConfig");
+
 const indexRoute = require("./routes/index.route");
 const storyRoute = require("./routes/story.route");
 const authRoute = require("./routes/auth.route");
@@ -18,6 +20,9 @@ app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 // Handlebars setting
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
+
+// Connect to database
+mongoConfig.configure();
 
 // Register routes
 app.use("/", indexRoute);
