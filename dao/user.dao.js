@@ -5,6 +5,10 @@ exports.addUser = async function (userObj) {
   return await newUser.save();
 };
 
-exports.getUser = async function (id) {
-  return await User.findById(id);
+exports.getUser = async function (profileId) {
+  return await User.findOne({ googleId: profileId });
+};
+
+exports.findById = async function (id) {
+  return User.findById(id);
 };
