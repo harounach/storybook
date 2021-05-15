@@ -30,7 +30,7 @@
             {{stripTags (truncate this.body 150)}}
           </p>
         </div>
-        <div class="story-card__section">
+        <div class="story-card__section story-card__section--bottom">
           <div class="btn-group btn-group--right">
             <a href="/stories/{{this._id}}/view" class="btn btn--left">View</a>
             {{#if (isOwner this.user ../loggedUser)}}

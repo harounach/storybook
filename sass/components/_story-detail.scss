@@ -17,6 +17,11 @@
     width: 100%;
     margin: 0;
     padding: 0;
+
+    // story__section--bottom
+    &--bottom {
+      margin-top: auto;
+    }
   }
 
   // story__avatar-wrapper
@@ -55,6 +60,7 @@
     left: 1rem;
     font-size: 12px;
     color: #0c600c;
+    text-transform: capitalize;
 
     // story__status--private
     &--private {
