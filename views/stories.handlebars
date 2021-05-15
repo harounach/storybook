@@ -27,13 +27,14 @@
         </div>
         <div class="story-card__section">
           <p class="story-card__body">
-            {{this.body}}
+            {{stripTags (truncate this.body 150)}}
           </p>
         </div>
         <div class="story-card__section">
           <div class="btn-group btn-group--right">
             <a href="/stories/{{this._id}}/view" class="btn btn--left">View</a>
-            <a
+            {{#if (isOwner this.user ../loggedUser)}}
+              <a
               href="/stories/{{this._id}}/edit"
               class="btn btn--40 btn--bg-white btn--right-margin"
             >
@@ -46,6 +47,9 @@
                 alt=""
               />
             </a>
+            {{/if}}
+
+            
           </div>
         </div>
       </div>

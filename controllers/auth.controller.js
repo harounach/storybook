@@ -4,7 +4,12 @@ const passport = require("passport");
  * @description Log in with Google route
  * @route GET /auth/google
  */
-exports.googleLogin = [passport.authenticate("google", { scope: ["profile"] })];
+exports.googleLogin = [
+  passport.authenticate("google", {
+    scope: ["profile"],
+    prompt: "select_account",
+  }),
+];
 
 /**
  * @description Google auth callback route

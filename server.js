@@ -15,6 +15,9 @@ const storyRoute = require("./routes/story.route");
 const authRoute = require("./routes/auth.route");
 const apiRoute = require("./routes/api.route");
 
+// Handlebars helpers
+const { truncate, stripTags, isOwner } = require("./helpers/hbs");
+
 const app = express();
 
 // Apply middlewares
@@ -36,7 +39,16 @@ app.use(
 );
 
 // Handlebars setting
-app.engine("handlebars", exphbs());
+app.engine(
+  "handlebars",
+  exphbs({
+    helpers: {
+      truncate,
+      stripTags,
+      isOwner,
+    },
+  })
+);
 app.set("view engine", "handlebars");
 
 // Connect to database

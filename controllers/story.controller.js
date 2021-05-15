@@ -16,6 +16,7 @@ exports.stories = [
       page: "public-page",
       title: "All stories",
       stories: stories,
+      loggedUser: req.user,
     });
   },
 ];
