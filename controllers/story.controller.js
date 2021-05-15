@@ -51,6 +51,7 @@ exports.getAddStory = [
       layout: "main",
       page: "add-story-page",
       title: "Add story",
+      status: "public",
     });
   },
 ];
@@ -76,6 +77,7 @@ exports.postAddStory = [
         title: "Add story",
         titleField: title,
         bodyField: body,
+        status: status,
         titleError: errorHelper.getErrorMessage(errors.array(), "title"),
         bodyError: errorHelper.getErrorMessage(errors.array(), "body"),
       });
