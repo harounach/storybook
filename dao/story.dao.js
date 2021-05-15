@@ -31,5 +31,5 @@ exports.getUserStories = async function (userId) {
 };
 
 exports.getStory = async function (id) {
-  return await Story.findById(id).populate("user");
+  return await Story.findById(id).populate("user").lean();
 };

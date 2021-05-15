@@ -27,11 +27,15 @@ exports.stories = [
  */
 exports.story = [
   ensureAuth,
-  function (req, res) {
+  async function (req, res) {
+    const id = req.params.id;
+    const story = await storyDAO.getStory(id);
     res.render("story", {
       layout: "main",
       page: "story-page",
       title: "Story 1",
+      story: story,
+      loggedUser: req.user,
     });
   },
 ];

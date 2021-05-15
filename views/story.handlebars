@@ -18,33 +18,35 @@
       </div>
     </div>
     <div class="story__section">
-      <h3 class="story__title">Learn to code</h3>
+      <h3 class="story__title">{{story.title}}</h3>
     </div>
     <div class="story__section">
       <p class="story__body">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident,
-        temporibus expedita nostrum, alias minima omnis animi culpa atque fuga
-        id veritatis! Aperiam commodi eaque ipsam nobis ipsa mollitia laboriosam
-        impedit!
+        {{story.body}}
       </p>
     </div>
     <div class="story__section">
       <div class="btn-group btn-group--right">
-        <a
-          href="/stories/1/edit"
-          class="btn btn--40 btn--bg-white btn--right-margin"
-        >
-          <img class="btn__icon" src="/images/edit_black_24dp.svg" alt="" />
-        </a>
-        <a href="#" class="btn btn--40 btn--bg-white">
-          <img class="btn__icon" src="/images/delete_black_24dp.svg" alt="" />
-        </a>
+        {{#if (isOwner story.user loggedUser)}}
+          <a
+            href="/stories/{{story._id}}/edit"
+            class="btn btn--40 btn--bg-white btn--right-margin"
+          >
+            <img class="btn__icon" src="/images/edit_black_24dp.svg" alt="" />
+          </a>
+          <a href="#" class="btn btn--40 btn--bg-white">
+            <img class="btn__icon" src="/images/delete_black_24dp.svg" alt="" />
+          </a>
+        {{/if}}
       </div>
     </div>
-    <span
-      class="story__status story__status--private"
-      title="Private story"
-    >Private</span>
+    {{#if (isOwner story.user loggedUser)}}
+      <span
+        class="story__status {{isPrivateStory story.status}}"
+        title="{{capitalize story.status}} story"
+      >{{story.status}}</span>
+    {{/if}}
+
   </div>
 </main>
 <footer class="story-page__footer footer">
