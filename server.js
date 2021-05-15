@@ -22,6 +22,7 @@ const {
   isOwner,
   capitalize,
   isPrivateStory,
+  statusChecked,
 } = require("./helpers/hbs");
 
 const app = express();
@@ -54,6 +55,7 @@ app.engine(
       isOwner,
       capitalize,
       isPrivateStory,
+      statusChecked,
     },
   })
 );

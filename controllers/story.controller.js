@@ -1,4 +1,4 @@
-const { ensureAuth } = require("../middleware/auth");
+const { ensureAuth, ensureOwner } = require("../middleware/auth");
 const storyDAO = require("../dao/story.dao");
 const errorHelper = require("../helpers/errorHelper");
 const { body, validationResult } = require("express-validator");
@@ -99,11 +99,17 @@ exports.postAddStory = [
  */
 exports.getEditStory = [
   ensureAuth,
-  function (req, res) {
+  ensureOwner,
+  async function (req, res) {
+    const id = req.params.id;
+    const story = await storyDAO.getStory(id);
     res.render("edit-story", {
       layout: "main",
       page: "edit-story-page",
       title: "Edit story",
+      titleField: story.title,
+      bodyField: story.body,
+      status: story.status,
     });
   },
 ];
@@ -112,6 +118,36 @@ exports.getEditStory = [
  * @description Edit story page route
  * @route Post /stories/:id/edit
  */
-exports.postEditStory = function (req, res) {
-  res.redirect("/dashboard");
-};
+exports.postEditStory = [
+  body("title", "Title must not be empty").not().isEmpty().escape(),
+  body("body", "Body must not be empty").not().isEmpty().escape(),
+  async function (req, res) {
+    const errors = validationResult(req);
+    const { title, body, status } = req.body;
+    const id = req.params.id;
+
+    // Data is invalid
+    if (!errors.isEmpty()) {
+      res.render("edit-story", {
+        layout: "main",
+        page: "edit-story-page",
+        title: "Edit story",
+        titleField: title,
+        bodyField: body,
+        titleError: errorHelper.getErrorMessage(errors.array(), "title"),
+        bodyError: errorHelper.getErrorMessage(errors.array(), "body"),
+        status: status,
+      });
+    } else {
+      // Data is valid, update the story
+      try {
+        const storyObj = { title, body, status, user: req.user.id };
+        await storyDAO.editStory(id, storyObj);
+        res.redirect("/dashboard");
+      } catch (err) {
+        console.error(err);
+        res.redirect("/dashboard");
+      }
+    }
+  },
+];

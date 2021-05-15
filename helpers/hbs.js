@@ -33,6 +33,13 @@ module.exports = {
 
     return "";
   },
+  statusChecked: function (status, currentStatus) {
+    if (status === currentStatus) {
+      return "checked";
+    }
+
+    return "";
+  },
   /**
    * @param {string} text
    */
