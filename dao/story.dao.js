@@ -19,7 +19,8 @@ exports.deleteStory = async function (id) {
 exports.getAllStories = async function () {
   return await Story.find({ status: "public" })
     .populate("user")
-    .sort({ createdAt: "desc" });
+    .sort({ createdAt: "desc" })
+    .lean();
 };
 
 exports.getUserStories = function () {

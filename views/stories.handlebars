@@ -13,107 +13,45 @@
 <main class="public-page__main main">
   <h3 class="title">List of public stories</h3>
   <div class="story-grid">
-    <!-- Card 1 -->
-    <div class="story-card">
-      <div class="story-card__section">
-        <div class="story-card__avatar-wrapper">
-          <img src="/images/profile.jpg" alt="" class="story-card__avatar" />
-        </div>
-      </div>
-      <div class="story-card__section">
-        <h3 class="story-card__title">Learn to code</h3>
-      </div>
-      <div class="story-card__section">
-        <p class="story-card__body">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A obcaecati
-          ipsum, ab nesciunt, pariatur, odit expedita voluptas saepe nulla
-          architecto quod autem quos! Aut impedit a possimus reiciendis!
-          Officia, enim?
-        </p>
-      </div>
-      <div class="story-card__section">
-        <div class="btn-group btn-group--right">
-          <a href="/stories/1/view" class="btn btn--left">View</a>
-          <a
-            href="/stories/1/edit"
-            class="btn btn--40 btn--bg-white btn--right-margin"
-          >
-            <img class="btn__icon" src="/images/edit_black_24dp.svg" alt="" />
-          </a>
-          <a href="#" class="btn btn--40 btn--bg-white">
-            <img class="btn__icon" src="/images/delete_black_24dp.svg" alt="" />
-          </a>
-        </div>
-      </div>
-    </div>
 
-    <!-- Card 2 -->
-    <div class="story-card">
-      <div class="story-card__section">
-        <div class="story-card__avatar-wrapper">
-          <img src="/images/user01.jpg" alt="" class="story-card__avatar" />
+    {{#each stories}}
+      <!-- Card 1 -->
+      <div class="story-card">
+        <div class="story-card__section">
+          <div class="story-card__avatar-wrapper">
+            <img src="{{this.user.image}}" alt="" class="story-card__avatar" />
+          </div>
+        </div>
+        <div class="story-card__section">
+          <h3 class="story-card__title">{{this.title}}</h3>
+        </div>
+        <div class="story-card__section">
+          <p class="story-card__body">
+            {{this.body}}
+          </p>
+        </div>
+        <div class="story-card__section">
+          <div class="btn-group btn-group--right">
+            <a href="/stories/{{this._id}}/view" class="btn btn--left">View</a>
+            <a
+              href="/stories/{{this._id}}/edit"
+              class="btn btn--40 btn--bg-white btn--right-margin"
+            >
+              <img class="btn__icon" src="/images/edit_black_24dp.svg" alt="" />
+            </a>
+            <a href="#" class="btn btn--40 btn--bg-white">
+              <img
+                class="btn__icon"
+                src="/images/delete_black_24dp.svg"
+                alt=""
+              />
+            </a>
+          </div>
         </div>
       </div>
-      <div class="story-card__section">
-        <h3 class="story-card__title">Learn to code</h3>
-      </div>
-      <div class="story-card__section">
-        <p class="story-card__body">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A obcaecati
-          ipsum, ab nesciunt, pariatur, odit expedita voluptas saepe nulla
-          architecto quod autem quos! Aut impedit a possimus reiciendis!
-          Officia, enim?
-        </p>
-      </div>
-      <div class="story-card__section">
-        <div class="btn-group btn-group--right">
-          <a href="/stories/2/view" class="btn btn--left">View</a>
-          <a
-            href="/stories/2/edit"
-            class="btn btn--40 btn--bg-white btn--right-margin"
-          >
-            <img class="btn__icon" src="/images/edit_black_24dp.svg" alt="" />
-          </a>
-          <a href="#" class="btn btn--40 btn--bg-white">
-            <img class="btn__icon" src="/images/delete_black_24dp.svg" alt="" />
-          </a>
-        </div>
-      </div>
-    </div>
 
-    <!-- Card 3 -->
-    <div class="story-card">
-      <div class="story-card__section">
-        <div class="story-card__avatar-wrapper">
-          <img src="/images/user02.jpg" alt="" class="story-card__avatar" />
-        </div>
-      </div>
-      <div class="story-card__section">
-        <h3 class="story-card__title">Learn to code</h3>
-      </div>
-      <div class="story-card__section">
-        <p class="story-card__body">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A obcaecati
-          ipsum, ab nesciunt, pariatur, odit expedita voluptas saepe nulla
-          architecto quod autem quos! Aut impedit a possimus reiciendis!
-          Officia, enim?
-        </p>
-      </div>
-      <div class="story-card__section">
-        <div class="btn-group btn-group--right">
-          <a href="/stories/3/view" class="btn btn--left">View</a>
-          <a
-            href="/stories/3/edit"
-            class="btn btn--40 btn--bg-white btn--right-margin"
-          >
-            <img class="btn__icon" src="/images/edit_black_24dp.svg" alt="" />
-          </a>
-          <a href="#" class="btn btn--40 btn--bg-white">
-            <img class="btn__icon" src="/images/delete_black_24dp.svg" alt="" />
-          </a>
-        </div>
-      </div>
-    </div>
+    {{/each}}
+
   </div>
 </main>
 <footer class="public-page__footer footer">

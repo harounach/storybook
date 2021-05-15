@@ -9,11 +9,13 @@ const { body, validationResult } = require("express-validator");
  */
 exports.stories = [
   ensureAuth,
-  function (req, res) {
+  async function (req, res) {
+    const stories = await storyDAO.getAllStories();
     res.render("stories", {
       layout: "main",
       page: "public-page",
       title: "All stories",
+      stories: stories,
     });
   },
 ];
