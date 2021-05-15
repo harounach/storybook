@@ -153,3 +153,22 @@ exports.postEditStory = [
     }
   },
 ];
+
+/**
+ * @description Remove story route
+ * @route GET /stories/:id/delete
+ */
+exports.deleteStory = [
+  ensureAuth,
+  ensureOwner,
+  async function (req, res) {
+    try {
+      const id = req.params.id;
+      await storyDAO.deleteStory(id);
+      res.redirect("/dashboard");
+    } catch (error) {
+      console.error(error);
+      res.redirect("/dashboard");
+    }
+  },
+];

@@ -39,4 +39,10 @@ router.route("/:id/edit").get(storyController.getEditStory);
  */
 router.route("/:id/edit").post(storyController.postEditStory);
 
+/**
+ * @description Remove story route
+ * @route GET /stories/:id/delete
+ */
+router.route("/:id/delete").get(storyController.deleteStory);
+
 module.exports = router;
