@@ -21,7 +21,7 @@ exports.dashboard = [
   ensureAuth,
   async function (req, res) {
     try {
-      const stories = await storyDAO.getAllStories();
+      const stories = await storyDAO.getUserStories(req.user.id);
 
       res.render("dashboard", {
         layout: "main",

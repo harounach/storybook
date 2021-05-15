@@ -23,8 +23,11 @@ exports.getAllStories = async function () {
     .lean();
 };
 
-exports.getUserStories = function () {
-  console.log("User stories");
+exports.getUserStories = async function (userId) {
+  return await Story.find({ user: userId })
+    .populate("user")
+    .sort({ createdAt: "desc" })
+    .lean();
 };
 
 exports.getStory = async function (id) {
