@@ -26,4 +26,17 @@ module.exports = {
   isOwner: function (storyUser, loggedUser) {
     return storyUser._id.toString() == loggedUser._id.toString();
   },
+  isPrivateStory: function (status) {
+    if (status === "private") {
+      return "story__status--private";
+    }
+
+    return "";
+  },
+  /**
+   * @param {string} text
+   */
+  capitalize: function (text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  },
 };

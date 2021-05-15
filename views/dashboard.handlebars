@@ -50,7 +50,10 @@
             </a>
           </div>
         </div>
-        <span class="story__status" title="Private story">{{this.status}}</span>
+        <span
+          class="story__status {{isPrivateStory this.status}}"
+          title="{{capitalize this.status}} story"
+        >{{this.status}}</span>
       </div>
     {{/each}}
 

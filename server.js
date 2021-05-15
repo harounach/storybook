@@ -16,7 +16,13 @@ const authRoute = require("./routes/auth.route");
 const apiRoute = require("./routes/api.route");
 
 // Handlebars helpers
-const { truncate, stripTags, isOwner } = require("./helpers/hbs");
+const {
+  truncate,
+  stripTags,
+  isOwner,
+  capitalize,
+  isPrivateStory,
+} = require("./helpers/hbs");
 
 const app = express();
 
@@ -46,6 +52,8 @@ app.engine(
       truncate,
       stripTags,
       isOwner,
+      capitalize,
+      isPrivateStory,
     },
   })
 );
