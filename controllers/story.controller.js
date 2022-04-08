@@ -33,7 +33,7 @@ exports.story = [
     res.render("story", {
       layout: "main",
       page: "story-page",
-      title: "Story 1",
+      title: story.title,
       story: story,
       loggedUser: req.user,
     });
