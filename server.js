@@ -27,6 +27,8 @@ const {
   statusChecked,
 } = require("./helpers/hbs");
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 
 // Apply middlewares
@@ -85,6 +87,6 @@ app.use("/stories", storyRoute);
 app.use("/auth", authRoute);
 app.use("/api", apiRoute);
 
-app.listen(3000, () => {
-  console.log("Server listening on port 3000");
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
