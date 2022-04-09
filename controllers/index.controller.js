@@ -1,4 +1,3 @@
-const { render } = require("sass");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 const storyDAO = require("../dao/story.dao");
 
